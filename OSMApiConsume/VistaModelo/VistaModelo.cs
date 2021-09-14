@@ -28,17 +28,17 @@ namespace OSMApiConsume.VistaModelo
         //definimos el objeto modelo del tipo BLEmodel
        
         //definimo el objeto ruteo del tipo OSMmodel
-        private OSMmodel _ruteo;
-        public OSMmodel Ruteo
+        private OSMmodel _route;
+        public OSMmodel Route
 
         {
             get
             {
-                return _ruteo;
+                return _route;
             }
             set
             {
-                _ruteo = value;
+                _route = value;
                 OnPropertyChanged("googlemap");
 
             }
@@ -58,15 +58,15 @@ namespace OSMApiConsume.VistaModelo
 
             }
         }
-        private string _txtDireccion;
-        public string txtDireccion
+        private string _txtAddress;
+        public string txtAddress
         {
-            get => _txtDireccion;
+            get => _txtAddress;
             set
             {
-                if (_txtDireccion != value)
+                if (_txtAddress != value)
                 {
-                    _txtDireccion = value;
+                    _txtAddress = value;
                     OnPropertyChanged();
                 }
 
@@ -117,7 +117,7 @@ namespace OSMApiConsume.VistaModelo
                 {
                     IsWorking = false;
 
-                    await ((NavigationPage)App.Current.MainPage).PushAsync(new Vista.SmartBike(App.vmBLE));
+                    await ((NavigationPage)App.Current.MainPage).PushAsync(new Vista.SmartBike(App.vmBinding));
 
                 });
 
@@ -136,15 +136,15 @@ namespace OSMApiConsume.VistaModelo
 
 
 
-        private Command _cmdIr;
-        public Command  CmdIr
+        private Command _cmdGo;
+        public Command cmdGo
         {
             get
             {
-                if (_cmdIr == null)
+                if (_cmdGo == null)
                 {
                    
-                     _cmdIr = new Command(async () =>
+                     _cmdGo = new Command(async () =>
                      {
                         
                          IsWorking = true;
@@ -156,7 +156,7 @@ namespace OSMApiConsume.VistaModelo
 
                    
                 }
-                return _cmdIr;
+                return _cmdGo;
             }
         }
 
@@ -165,22 +165,22 @@ namespace OSMApiConsume.VistaModelo
 
             IsWorking = true;
             
-            string Destino = "";
+            string finalAddress = "";
            
-            if (txtDireccion != null  )
+            if (txtAddress != null  )
             {
                                 
               
                     try
                     {
-                        var locations_destino = await Geocoding.GetLocationsAsync(txtDireccion);
+                        var locations_destino = await Geocoding.GetLocationsAsync(txtAddress);
                         var location_destino = locations_destino?.FirstOrDefault();
                         if(location_destino != null) { 
-                        Destino = location_destino.Longitude.ToString() + "," + location_destino.Latitude.ToString();
+                        finalAddress = location_destino.Longitude.ToString() + "," + location_destino.Latitude.ToString();
                         }
                         else
                         {
-                            txtDireccion = null;
+                            txtAddress = null;
                             await App.Current.MainPage.DisplayAlert("Error!", "Invalid address", "OK");
                         }
                     }
@@ -189,11 +189,11 @@ namespace OSMApiConsume.VistaModelo
                     
                     }
     
-                    string Origen = "";
+                    string Origin = "";
                     await _geolocation.GetLocation();
-                    Origen = GeolocationGPS.Lng.ToString() + "," + GeolocationGPS.Lat.ToString();
+                    Origin = GeolocationGPS.Lng.ToString() + "," + GeolocationGPS.Lat.ToString();
                    
-                    var conexion = $"http://router.project-osrm.org/route/v1/driving/{Origen};{Destino}?overview=simplified&geometries=polyline&steps=true";
+                    var conexion = $"http://router.project-osrm.org/route/v1/driving/{Origin};{finalAddress}?overview=simplified&geometries=polyline&steps=true";
 
          
                 if (IsArrive == false)
@@ -213,12 +213,12 @@ namespace OSMApiConsume.VistaModelo
 
                                 if (peticion.IsSuccessStatusCode)
                                 {
-                                    Ruteo = JsonConvert.DeserializeObject<OSMmodel>(json); 
+                                    Route = JsonConvert.DeserializeObject<OSMmodel>(json); 
 
-                                    if (Ruteo.Code.Equals("Ok"))
+                                    if (Route.Code.Equals("Ok"))
                                     {
 
-                                        MapRender.Goomap(Ruteo); 
+                                        MapRender.Goomap(Route); 
                                        
                                              
                                     }
@@ -231,7 +231,7 @@ namespace OSMApiConsume.VistaModelo
                                     }
 
                                 
-                                    if (Ruteo.Routes[0].Legs[0].Steps[1].Maneuver.Type == "arrive" && Ruteo.Routes[0].Legs[0].Steps[0].Distance < 50)
+                                    if (Route.Routes[0].Legs[0].Steps[1].Maneuver.Type == "arrive" && Route.Routes[0].Legs[0].Steps[0].Distance < 50)
                                     {
                                         IsArrive = true;
                                     
@@ -243,7 +243,7 @@ namespace OSMApiConsume.VistaModelo
                                     else { 
                                     await startTracking(); 
                                 
-                                    return Ruteo;
+                                    return Route;
                                     }
                                     
                                 }
@@ -266,7 +266,7 @@ namespace OSMApiConsume.VistaModelo
 
                 await App.Current.MainPage.DisplayAlert("Empty address", "Enter an Address", "OK");
                 MapRender.CleanDraw();
-                Destino = "";
+                finalAddress = "";
                 await stopTracking();
                 
             }

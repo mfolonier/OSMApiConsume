@@ -5,14 +5,14 @@ namespace OSMApiConsume
     public partial class App : Application
     {
 
-        public static VistaModelo.VistaModelo vmBLE;
+        public static VistaModelo.VistaModelo vmBinding;
 
         public App()
         {
             InitializeComponent();
            
-            vmBLE = new VistaModelo.VistaModelo();
-            MainPage = new NavigationPage(new Vista.Connect(vmBLE));
+            vmBinding = new VistaModelo.VistaModelo();
+            MainPage = new NavigationPage(new Vista.Connect(vmBinding));
         }
 
         protected override void OnStart()

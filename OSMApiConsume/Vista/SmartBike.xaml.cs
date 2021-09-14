@@ -31,7 +31,7 @@ namespace OSMApiConsume.Vista
             
             await _geolocation.GetLocation();
 
-            if (true )
+            if (GeolocationGPS._locator.IsGeolocationAvailable)
             {
 
                 _MapPosition = new Position(GeolocationGPS.Lat, GeolocationGPS.Lng);
@@ -70,10 +70,10 @@ namespace OSMApiConsume.Vista
         }
 
 
-        public SmartBike(VistaModelo.VistaModelo vmBLE)
+        public SmartBike(VistaModelo.VistaModelo vmBinding)
         {
             InitializeComponent();
-            BindingContext = vmBLE;
+            BindingContext = vmBinding;
            
 
         

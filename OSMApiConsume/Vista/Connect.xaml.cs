@@ -11,10 +11,10 @@ namespace OSMApiConsume.Vista
         {
             InitializeComponent();
         }
-        public Connect(VistaModelo.VistaModelo vmBLE)
+        public Connect(VistaModelo.VistaModelo VmBinding)
         {
             InitializeComponent();
-            BindingContext = vmBLE;
+            BindingContext = VmBinding;
 
         }
 

@@ -21,11 +21,11 @@ namespace OSMApiConsume.Class
 
 
         static OSMmodel OSMdata;
-        public static void Goomap(OSMmodel googlemap)
+        public static void Goomap(OSMmodel osmModelData)
         {
 
             OSMdata = new OSMmodel();
-            OSMdata = googlemap;
+            OSMdata = osmModelData;
             Polydraw();
         }
 
