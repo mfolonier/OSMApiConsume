@@ -2,7 +2,6 @@ FormsViewGroup.dll
 Plugin.CurrentActivity.dll
 Plugin.Geolocator.dll
 Plugin.Permissions.dll
-Plugin.TextToSpeech.dll
 Xamarin.Android.Arch.Core.Common.dll
 Xamarin.Android.Arch.Core.Runtime.dll
 Xamarin.Android.Arch.Lifecycle.Common.dll
@@ -43,7 +42,6 @@ Xamarin.Android.Support.ViewPager.dll
 Xamarin.Essentials.dll
 Xamarin.Forms.GoogleMaps.Android.dll
 Xamarin.Forms.Maps.Android.dll
-Xamarin.Forms.Material.dll
 Xamarin.Forms.Platform.Android.dll
 Xamarin.Forms.Platform.dll
 Xamarin.GooglePlayServices.Base.dll

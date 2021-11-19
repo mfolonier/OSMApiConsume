@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Xamarin.Forms;
 
-using OSMApiConsume.Modelo;
+using OSMApiConsume.Model;
 
 using Xamarin.Forms.GoogleMaps;
 

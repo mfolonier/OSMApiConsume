@@ -22,10 +22,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="Vista\Connect.xaml">
+    <EmbeddedResource Update="View\Connect.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Vista\SmartBike.xaml">
+    <EmbeddedResource Update="View\SmartBike.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

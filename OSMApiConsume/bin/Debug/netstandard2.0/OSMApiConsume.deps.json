@@ -12,12 +12,10 @@
           "NETStandard.Library": "2.0.3",
           "Newtonsoft.Json": "12.0.3",
           "Xam.Plugin.Geolocator": "4.5.0.6",
-          "Xam.Plugins.TextToSpeech": "4.0.0.7",
           "Xamarin.Essentials": "1.5.3.2",
           "Xamarin.Forms": "4.6.0.800",
           "Xamarin.Forms.GoogleMaps": "3.3.0",
-          "Xamarin.Forms.Maps": "4.6.0.800",
-          "Xamarin.Forms.Visual.Material": "4.6.0.800"
+          "Xamarin.Forms.Maps": "4.6.0.800"
         },
         "runtime": {
           "OSMApiConsume.dll": {}
@@ -48,14 +46,6 @@
       "Xam.Plugin.Geolocator/4.5.0.6": {
         "runtime": {
           "lib/netstandard2.0/Plugin.Geolocator.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.0"
-          }
-        }
-      },
-      "Xam.Plugins.TextToSpeech/4.0.0.7": {
-        "runtime": {
-          "lib/netstandard2.0/Plugin.TextToSpeech.dll": {
             "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
@@ -109,11 +99,6 @@
             "fileVersion": "4.6.0.474"
           }
         }
-      },
-      "Xamarin.Forms.Visual.Material/4.6.0.800": {
-        "dependencies": {
-          "Xamarin.Forms": "4.6.0.800"
-        }
       }
     }
   },
@@ -158,13 +143,6 @@
       "path": "xam.plugin.geolocator/4.5.0.6",
       "hashPath": "xam.plugin.geolocator.4.5.0.6.nupkg.sha512"
     },
-    "Xam.Plugins.TextToSpeech/4.0.0.7": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-XFf3HBQCeFetL8cEEcKkinqZ1d2L3XYQLhj83gPTIsWVsXoOQWKOyjRs9ZmDBuwWwNvVt5wlKHY+zpWXfeJJZw==",
-      "path": "xam.plugins.texttospeech/4.0.0.7",
-      "hashPath": "xam.plugins.texttospeech.4.0.0.7.nupkg.sha512"
-    },
     "Xamarin.Essentials/1.5.3.2": {
       "type": "package",
       "serviceable": true,
@@ -192,13 +170,6 @@
       "sha512": "sha512-QUrcVZHt2uiE6DI4MmmTLdNN/z/awCtOjCMO6J7A7z8/CSn/ukdsdy8IPYPbrQvp8O/EvXsi6rhjcDNIb9mduQ==",
       "path": "xamarin.forms.maps/4.6.0.800",
       "hashPath": "xamarin.forms.maps.4.6.0.800.nupkg.sha512"
-    },
-    "Xamarin.Forms.Visual.Material/4.6.0.800": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-vs+Fvy+kn0hzVjASaKzmfPa5jBN4bESs2aRd4N24OwnqWCpKvyBFlbveusuVztwzKwXV53gWDEBR1Cb/UTrD7g==",
-      "path": "xamarin.forms.visual.material/4.6.0.800",
-      "hashPath": "xamarin.forms.visual.material.4.6.0.800.nupkg.sha512"
     }
   }
 }
